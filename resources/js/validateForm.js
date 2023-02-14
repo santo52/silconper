@@ -1,19 +1,3 @@
-function validateForm(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var $form = $(e.target);
-    $form.find('.is-invalid').removeClass('is-invalid');
-    $form.find('.invalid-feedback').remove();
-    var required = validateRequired($form);
-  
-    if (required) {
-      var numeric = validateNumeric($form);
-      return numeric;
-    }
-  
-    return required;
-  }
-  
   function validateNumeric($form) {
     var numericFields = $form.find('.form-control.numeric, .form-control.money').toArray();
     var completed = true;
@@ -52,5 +36,18 @@ function validateForm(e) {
     return completed;
   }
 
-
+  export function validateForm(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var $form = $(e.target);
+    $form.find('.is-invalid').removeClass('is-invalid');
+    $form.find('.invalid-feedback').remove();
+    var required = validateRequired($form);
   
+    if (required) {
+      var numeric = validateNumeric($form);
+      return numeric;
+    }
+  
+    return required;
+  }

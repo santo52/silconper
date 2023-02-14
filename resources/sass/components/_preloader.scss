@@ -1,0 +1,51 @@
+.preloader {
+    background-color: #f4f6f970 !important;
+    .page-loading {
+        background-color: rgba(255, 255, 255, 0.8);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 9999;
+    }
+    .page-loading .loader {
+        background: #46c8ef;
+        border-radius: 50%;
+        height: 50px;
+        left: 50%;
+        margin-left: -23px;
+        margin-top: -14px;
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        animation: load 0.75s linear infinite;
+    }
+    .page-loading .loader:after {
+        content: "";
+        position: absolute;
+        width: 49px;
+        height: 49px;
+        top: 1px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        background: white;
+        border-radius: 50%;
+    }
+    @keyframes load {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .page-loading .text {
+        color: #000;
+        display: block;
+        font-size: 11px;
+        left: 50%;
+        margin-left: -17px;
+        margin-top: 44px;
+        position: absolute;
+        top: 50%;
+    }
+}

@@ -23,7 +23,10 @@ class AuthController extends Controller
         ])->first();
 
         if(empty($usuario)) {
-            return response()->json(['auth' => false]);
+            return response()->json([
+                'auth' => false, 
+                'message' => 'El usuario o la contraseña son incorrectos'
+            ]);
         }
 
         Auth::login($usuario);

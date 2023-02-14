@@ -1,4 +1,4 @@
-class Login {
+export class Login {
     send(e) {
 
         e.preventDefault()
@@ -15,16 +15,19 @@ class Login {
                 data: arrayForm,
                 dataType: 'json',
                 processData: false,
+                beforeSend: () => $.preloader().show(),
                 success: (data) => {
-                    console.log(data)
                     if (data.auth) {
                         location.reload();
                     } else {
+                        $.preloader().hide()
+                        $('.invalid-feedback').remove();
                         $('#user, #password').addClass('is-invalid').parent()
-                        .append(`<span class="error invalid-feedback">El usuario o contraseña son incorrectos</span>`);
+                        .append(`<span class="error invalid-feedback">${data.message}</span>`);
                     }
                 },
                 error: (err) => {
+                    $.preloader().hide()
                     console.log(err)
                 }
             })
@@ -33,5 +36,3 @@ class Login {
         return false;
     }
 }
-
-const login = new Login()

@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path')
 const fs = require('fs')
 
@@ -20,12 +21,30 @@ function recursiveRoutes(folderName) {
     }, [])
 }
 
-
 mix.webpackConfig({
+    entry: {
+        app: path.join(__dirname, 'resources/js/index.js'),
+        views: [...recursiveRoutes("resources/views")],
+    },
+    output: {
+        libraryTarget: 'umd',
+        filename: 'js/[name].bundle.js',
+    },
+    module: {
+        rules: [
+          {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+          },
+        ],
+    },
     optimization: {
-        minimize: true
+        minimize: true,
+        minimizer: [new TerserPlugin({
+            extractComments: false,
+        })],
     }
 })
 
-mix.babel(['resources/js/app.js', ...recursiveRoutes("resources/views")], 'public/js/app.js')
-.sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/app.scss', 'public/css');

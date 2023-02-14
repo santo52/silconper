@@ -23,6 +23,14 @@
 
 @yield('container')
 
+
+<div class="preloader">
+  <div class="page-loading">
+    <div class="loader"></div>
+    <span class="text">Loading...</span>
+  </div>
+</div>
+
 <!-- jQuery -->
 <script src="{!! asset('plugins/jquery/jquery.min.js') !!}"></script>
 <!-- Bootstrap 4 -->
@@ -31,7 +39,8 @@
 <!-- AdminLTE App -->
 <script src="{!! asset('plugins/admin-lte/js/adminlte.min.js') !!}"></script>
 
-<script src="{!! asset('js/app.js') !!}"></script>
+<script src="{!! asset('js/app.bundle.js') !!}"></script>
+<script src="{!! asset('js/views.bundle.js') !!}"></script>
 
 @yield('scripts')
 
