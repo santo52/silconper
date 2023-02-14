@@ -12,15 +12,42 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'tcpc_loginusuarios';
+
+    protected $primaryKey = 'idUsuario';
+
+    const CREATED_AT = 'fechaCrea';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'nombre',
+        'usuario',
+        'clave',
+        'celular',
+        'identificacion',
+        'tipoInicio',
+        'idPais',
+        'idCiudad',
+        'idPunto',
+        'idPerfil',
+        'lat',
+        'lng',
+        'apiGeoGoogle',
+        'keyGoogle',
+        'tipoGeo',
+        'cambioClave',
+        'login',
+        'suspenso',
+        'fechaUltimoIngreso',
+        'fechaSalida',
+        'fechaLimiteIngreso',
+        'fechaCrea',
+        'activo',
+        'fechaActivo'
     ];
 
     /**
@@ -29,7 +56,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'clave',
         'remember_token',
     ];
 
