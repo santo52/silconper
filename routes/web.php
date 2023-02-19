@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -17,14 +17,17 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    /** Dashboard routes */
+
+    Route::get('/', [DashboardController::class, 'index'])->name('home');
+    Route::post('/dashboard/sales-aggregators', [DashboardController::class, 'salesByAggregators']);
+    Route::post('/dashboard/general-sales-pdv', [DashboardController::class, 'generalSalesPDV']);
+    Route::post('/dashboard/sales', [DashboardController::class, 'sales']);
+    Route::post('/dashboard/orders', [DashboardController::class, 'orders']);
 });
 
 Route::middleware('no-auth')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
 });
-
-
-
-

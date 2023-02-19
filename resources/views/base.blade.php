@@ -16,6 +16,8 @@
 
   <link rel="stylesheet" href="{!! asset('css/app.css') !!}">
 
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   @yield('styles')
 
 </head>
@@ -41,6 +43,14 @@
 
 <script src="{!! asset('js/app.bundle.js') !!}"></script>
 <script src="{!! asset('js/views.bundle.js') !!}"></script>
+
+<script>
+  $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+</script>
 
 @yield('scripts')
 
