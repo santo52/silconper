@@ -24,7 +24,9 @@ function recursiveRoutes(folderName) {
 mix.webpackConfig({
     entry: {
         app: path.join(__dirname, 'resources/js/index.js'),
-        views: [...recursiveRoutes("resources/views")],
+        // views: [...recursiveRoutes("resources/views")],
+        login: [...recursiveRoutes("resources/views/auth")],
+        dashboard: [...recursiveRoutes("resources/views/dashboard")],
     },
     output: {
         libraryTarget: 'umd',

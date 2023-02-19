@@ -42,7 +42,8 @@
 <script src="{!! asset('plugins/admin-lte/js/adminlte.min.js') !!}"></script>
 
 <script src="{!! asset('js/app.bundle.js') !!}"></script>
-<script src="{!! asset('js/views.bundle.js') !!}"></script>
+<script src="{!! asset('js/dashboard.bundle.js') !!}"></script>
+<script src="{!! asset('js/login.bundle.js') !!}"></script>
 
 <script>
   $.ajaxSetup({

@@ -1,6 +1,7 @@
 {
     "/js/mix.bundle.js": "/js/mix.bundle.js",
     "/js/app.bundle.js": "/js/app.bundle.js",
-    "/js/views.bundle.js": "/js/views.bundle.js",
+    "/js/login.bundle.js": "/js/login.bundle.js",
+    "/js/dashboard.bundle.js": "/js/dashboard.bundle.js",
     "/css/app.css": "/css/app.css"
 }
